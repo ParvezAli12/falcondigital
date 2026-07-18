@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us — Falcons Digital</title>
+  <meta name="description" content="Book a free strategy call with Falcons Digital. Karachi-based Meta Ads, Google Ads, and lead generation specialists."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/page.css"/>
+  <!-- EmailJS — sends the form without a backend -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+  <div id="cursor"><div class="cur-dot"></div><div class="cur-ring"></div></div>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="Falcons" class="logo-img" onerror="this.style.display='none'"/>
+        <span class="logo-txt">Falcons<span class="blue">.</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="index.html#process">Process</a></li>
+        <li><a href="index.html#testimonials">Reviews</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="dashboard/login.html" class="btn btn-outline">Dashboard</a>
+        <a href="contact.html" class="btn btn-outline">Contact</a>
+        <a href="contact.html" class="btn btn-primary">Get Started →</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html#services" class="mm-link">Services</a>
+    <a href="about.html" class="mm-link">About Us</a>
+    <a href="pricing.html" class="mm-link">Pricing</a>
+    <a href="index.html#process" class="mm-link">Process</a>
+    <a href="index.html#testimonials" class="mm-link">Reviews</a>
+    <a href="dashboard/login.html" class="mm-link">Dashboard</a>
+    <a href="contact.html" class="mm-link blue">Get Started</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-grid"></div>
+    <div class="section-inner">
+      <div class="stag">Contact</div>
+      <h1 class="page-title">Let's talk about<br>your <span class="blue">growth.</span></h1>
+      <p class="page-sub">Fill out the form and we'll get back to you within 24 hours. Or skip the form and message us directly on WhatsApp.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT GRID -->
+  <section class="section-pad">
+    <div class="section-inner">
+      <div class="contact-grid">
+
+        <!-- FORM -->
+        <div class="contact-form-wrap">
+          <form id="contact-form">
+            <div class="cf-row">
+              <div class="cf-field">
+                <label>Full Name *</label>
+                <input type="text" id="cf-name" name="name" placeholder="Ahmed Khan" required/>
+              </div>
+              <div class="cf-field">
+                <label>Phone Number *</label>
+                <input type="tel" id="cf-phone" name="phone" placeholder="+92 300 1234567" required/>
+              </div>
+            </div>
+            <div class="cf-row">
+              <div class="cf-field">
+                <label>Email *</label>
+                <input type="email" id="cf-email" name="email" placeholder="ahmed@business.com" required/>
+              </div>
+              <div class="cf-field">
+                <label>Company Name</label>
+                <input type="text" id="cf-company" name="company" placeholder="Your business name"/>
+              </div>
+            </div>
+            <div class="cf-field full-width">
+              <label>Service You're Interested In *</label>
+              <select id="cf-service" name="service" required>
+                <option value="">— Select a Service —</option>
+                <option>Meta Ads</option>
+                <option>Google Ads</option>
+                <option>TikTok Ads</option>
+                <option>Social Media Management</option>
+                <option>Lead Generation</option>
+                <option>Not sure — need guidance</option>
+              </select>
+            </div>
+            <div class="cf-field full-width">
+              <label>Monthly Ad Budget (Approximate)</label>
+              <select id="cf-budget" name="budget">
+                <option value="">— Select a Range —</option>
+                <option>Under Rs. 30,000</option>
+                <option>Rs. 30,000 – 60,000</option>
+                <option>Rs. 60,000 – 150,000</option>
+                <option>Rs. 150,000+</option>
+                <option>I don't know yet</option>
+              </select>
+            </div>
+            <div class="cf-field full-width">
+              <label>Tell Us About Your Business *</label>
+              <textarea id="cf-message" name="message" rows="5" placeholder="What do you sell? What's your biggest challenge right now with marketing?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" id="cf-submit" style="width:100%;justify-content:center;">
+              Send Message →
+            </button>
+            <div class="cf-status" id="cf-status"></div>
+          </form>
+        </div>
+
+        <!-- SIDE INFO -->
+        <div class="contact-side">
+          <div class="contact-side-card">
+            <div class="csc-icon">📞</div>
+            <div class="csc-title">Prefer to talk directly?</div>
+            <p class="csc-desc">Skip the form and message us on WhatsApp — usually the fastest way to get a response.</p>
+            <a href="https://wa.me/923000000000" class="btn btn-outline" target="_blank" style="width:100%;justify-content:center;margin-top:1rem">💬 WhatsApp Us</a>
+          </div>
+          <div class="contact-side-card">
+            <div class="csc-icon">✉️</div>
+            <div class="csc-title">Email Us</div>
+            <p class="csc-desc"><a href="mailto:hello@falconsdigital.co" class="csc-link">hello@falconsdigital.co</a></p>
+          </div>
+          <div class="contact-side-card">
+            <div class="csc-icon">📍</div>
+            <div class="csc-title">Based In</div>
+            <p class="csc-desc">Karachi, Pakistan<br>Working with clients across the country</p>
+          </div>
+          <div class="contact-side-card">
+            <div class="csc-icon">⏱️</div>
+            <div class="csc-title">Response Time</div>
+            <p class="csc-desc">We reply to all enquiries within 24 hours, often much sooner during business hours.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:1rem">
+          <img src="assets/images/logo.png" alt="Falcons" class="logo-img" onerror="this.style.display='none'"/>
+          <span class="logo-txt">Falcons<span class="blue">.</span></span>
+        </div>
+        <p>A next-generation digital marketing agency. We help brands grow faster with precision advertising and data-backed strategy.</p>
+        <div class="footer-socials">
+          <a href="#" class="fsoc">in</a>
+          <a href="#" class="fsoc">fb</a>
+          <a href="#" class="fsoc">li</a>
+          <a href="#" class="fsoc">tt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services/meta-ads.html">Meta Ads</a></li>
+          <li><a href="services/google-ads.html">Google Ads</a></li>
+          <li><a href="services/tiktok-ads.html">TikTok Ads</a></li>
+          <li><a href="services/social-media.html">Social Media</a></li>
+          <li><a href="services/lead-generation.html">Lead Generation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="index.html#process">How It Works</a></li>
+          <li><a href="index.html#testimonials">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@falconsdigital.co">hello@falconsdigital.co</a></li>
+          <li><a href="https://wa.me/923000000000">WhatsApp</a></li>
+          <li><a href="#">Karachi, Pakistan</a></li>
+          <li><a href="dashboard/login.html">Staff Login</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Falcons Digital LLC. All rights reserved.</p>
+      <div class="footer-live"><span class="badge-dot"></span> All systems operational</div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/923000000000" class="wa-float" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+
+  <script src="js/main.js"></script>
+  <script src="js/contact-form.js"></script>
+</body>
+</html>

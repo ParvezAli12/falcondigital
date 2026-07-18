@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Falcons Digital — Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--blue:#0057FF;--blue-glow:rgba(0,87,255,0.3);--navy:#00091A;--navy-2:#000D26;--gold:#FFB800;--white:#fff;--gray:#8A9AB8;--border:rgba(0,87,255,0.18);--red:#FF4560;--font-display:'Bebas Neue',sans-serif;--font-body:'Manrope',sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--font-body);background:var(--navy);color:var(--white);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,87,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,87,255,0.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+    .glow{position:fixed;width:600px;height:600px;background:radial-gradient(circle,rgba(0,87,255,0.15) 0%,transparent 70%);top:-100px;right:-100px;pointer-events:none;animation:fl 8s ease-in-out infinite;}
+    .glow2{position:fixed;width:400px;height:400px;background:radial-gradient(circle,rgba(255,184,0,0.06) 0%,transparent 70%);bottom:-50px;left:-50px;pointer-events:none;animation:fl 10s ease-in-out infinite reverse;}
+    @keyframes fl{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-30px)}}
+    .wrap{position:relative;z-index:1;width:100%;max-width:420px;padding:1rem;}
+    .brand{text-align:center;margin-bottom:2rem;}
+    .brand-logo{width:60px;height:60px;margin:0 auto 0.9rem;background:rgba(0,87,255,0.1);border:1px solid var(--border);border-radius:14px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .brand-logo img{width:50px;height:50px;object-fit:contain;}
+    .brand-name{font-family:var(--font-display);font-size:1.7rem;letter-spacing:0.08em;}
+    .brand-name span{color:var(--blue);}
+    .brand-sub{color:var(--gray);font-size:0.8rem;margin-top:0.2rem;}
+    .card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:16px;padding:2.2rem;backdrop-filter:blur(20px);}
+    .card-title{font-family:var(--font-display);font-size:1.7rem;letter-spacing:0.05em;margin-bottom:0.2rem;}
+    .card-sub{color:var(--gray);font-size:0.82rem;margin-bottom:1.8rem;}
+    .role-tabs{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:1.6rem;}
+    .rtab{padding:0.65rem;border:1.5px solid var(--border);border-radius:8px;background:transparent;color:var(--gray);font-family:var(--font-body);font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;justify-content:center;gap:0.4rem;}
+    .rtab.active{border-color:var(--blue);color:var(--white);background:rgba(0,87,255,0.12);}
+    .rtab:hover:not(.active){border-color:rgba(0,87,255,0.4);color:rgba(255,255,255,0.7);}
+    .field{margin-bottom:1.1rem;}
+    .field label{display:block;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);margin-bottom:0.4rem;}
+    .field input,.field select{width:100%;background:rgba(255,255,255,0.04);border:1.5px solid var(--border);border-radius:8px;padding:0.8rem 1rem;color:var(--white);font-family:var(--font-body);font-size:0.88rem;outline:none;transition:border-color 0.3s;-webkit-appearance:none;}
+    .field input::placeholder{color:rgba(138,154,184,0.5);}
+    .field input:focus,.field select:focus{border-color:var(--blue);}
+    .field select option{background:var(--navy-2);}
+    .btn-login{width:100%;padding:0.95rem;background:var(--blue);color:#fff;border:none;border-radius:8px;font-family:var(--font-body);font-size:0.88rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;box-shadow:0 0 24px var(--blue-glow);margin-top:0.3rem;position:relative;overflow:hidden;}
+    .btn-login:hover{box-shadow:0 0 40px var(--blue-glow);}
+    .err{background:rgba(255,69,96,0.1);border:1px solid rgba(255,69,96,0.3);border-radius:8px;padding:0.75rem 1rem;font-size:0.8rem;color:var(--red);margin-bottom:1rem;display:none;}
+    .err.show{display:block;}
+    .hint{text-align:center;margin-top:1.3rem;font-size:0.76rem;color:var(--gray);}
+    .hint span{color:var(--blue);font-weight:600;}
+    .anim{animation:fu 0.7s var(--ease) both;}
+    @keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .d1{animation-delay:0.1s}.d2{animation-delay:0.2s}
+  </style>
+</head>
+<body>
+  <div class="glow"></div><div class="glow2"></div>
+  <div class="wrap">
+    <div class="brand anim">
+      <div class="brand-logo"><img src="../assets/images/logo.png" alt="Falcons" onerror="this.style.display='none'"/></div>
+      <div class="brand-name">Falcons<span>.</span></div>
+      <div class="brand-sub">Internal Management Portal</div>
+    </div>
+    <div class="card anim d1">
+      <div class="card-title">Sign In</div>
+      <div class="card-sub">Choose your role to access your dashboard</div>
+      <div class="role-tabs">
+        <button class="rtab active" onclick="setRole('owner')" id="tab-owner">👑 Owner</button>
+        <button class="rtab" onclick="setRole('employee')" id="tab-emp">👤 Employee</button>
+      </div>
+      <div class="err" id="err">Incorrect credentials. Please try again.</div>
+
+      <!-- Owner -->
+      <div id="owner-form">
+        <div class="field"><label>Username</label><input id="ou" placeholder="admin" autocomplete="username"/></div>
+        <div class="field"><label>Password</label><input type="password" id="op" placeholder="••••••••" autocomplete="current-password"/></div>
+        <button class="btn-login" onclick="loginOwner()">Enter Owner Dashboard →</button>
+      </div>
+
+      <!-- Employee -->
+      <div id="emp-form" style="display:none">
+        <div class="field"><label>Username</label><input id="eu" placeholder="e.g. ali-hassan" autocomplete="username"/></div>
+        <div class="field"><label>Password</label><input type="password" id="ep" placeholder="••••••••" autocomplete="current-password"/></div>
+        <button class="btn-login" onclick="loginEmp()">Enter Employee Dashboard →</button>
+      </div>
+
+      <div class="hint anim d2">Powered by <span>Falcons Digital LLC</span></div>
+    </div>
+  </div>
+
+  <script>
+    function initData(){
+      if(!localStorage.getItem('fd_owner')) localStorage.setItem('fd_owner',JSON.stringify({username:'admin',password:'falcons2025'}));
+      if(!localStorage.getItem('fd_employees')) localStorage.setItem('fd_employees',JSON.stringify([
+        {id:'emp1',name:'Ali Hassan',username:'ali-hassan',password:'ali123',role:'Media Buyer',commissionRate:10,active:true},
+        {id:'emp2',name:'Sara Ahmed',username:'sara-ahmed',password:'sara123',role:'Account Manager',commissionRate:10,active:true},
+        {id:'emp3',name:'Bilal Raza',username:'bilal-raza',password:'bilal123',role:'Content Creator',commissionRate:8,active:true},
+      ]));
+      migrateEmployees();
+      if(!localStorage.getItem('fd_orders')) localStorage.setItem('fd_orders',JSON.stringify([]));
+      if(!localStorage.getItem('fd_targets')) localStorage.setItem('fd_targets',JSON.stringify({}));
+      if(!localStorage.getItem('fd_notifications')) localStorage.setItem('fd_notifications',JSON.stringify([]));
+      if(!localStorage.getItem('fd_commission_settings')) localStorage.setItem('fd_commission_settings',JSON.stringify({}));
+    }
+
+    function slugName(name){
+      return String(name||'employee').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')||'employee';
+    }
+
+    function uniqueUsername(name,id,emps){
+      const taken=new Set(emps.map(e=>String(e.username||'').toLowerCase()).filter(Boolean));
+      let base=slugName(name), user=base, n=2;
+      while(taken.has(user)) user=`${base}-${n++}`;
+      return user || `employee-${String(id||Date.now()).slice(-4)}`;
+    }
+
+    function migrateEmployees(){
+      const emps=JSON.parse(localStorage.getItem('fd_employees')||'[]');
+      let changed=false;
+      emps.forEach(e=>{
+        if(!e.username){
+          e.username=uniqueUsername(e.name,e.id,emps);
+          changed=true;
+        }
+      });
+      if(changed) localStorage.setItem('fd_employees',JSON.stringify(emps));
+    }
+
+    function setRole(r){
+      document.getElementById('tab-owner').classList.toggle('active',r==='owner');
+      document.getElementById('tab-emp').classList.toggle('active',r==='employee');
+      document.getElementById('owner-form').style.display=r==='owner'?'block':'none';
+      document.getElementById('emp-form').style.display=r==='employee'?'block':'none';
+      document.getElementById('err').classList.remove('show');
+    }
+
+    function loginOwner(){
+      const owner=JSON.parse(localStorage.getItem('fd_owner'));
+      if(document.getElementById('ou').value.trim()===owner.username&&document.getElementById('op').value===owner.password){
+        sessionStorage.setItem('fd_session',JSON.stringify({role:'owner',name:'Owner'}));
+        window.location.href='owner.html';
+      } else document.getElementById('err').classList.add('show');
+    }
+
+    function loginEmp(){
+      const username=document.getElementById('eu').value.trim().toLowerCase();
+      const pass=document.getElementById('ep').value;
+      const emps=JSON.parse(localStorage.getItem('fd_employees')||'[]');
+      const emp=emps.find(e=>String(e.username||'').toLowerCase()===username&&e.password===pass&&e.active);
+      if(emp){
+        sessionStorage.setItem('fd_session',JSON.stringify({role:'employee',id:emp.id,name:emp.name,username:emp.username,empRole:emp.role}));
+        window.location.href='employee.html';
+      } else document.getElementById('err').classList.add('show');
+    }
+
+    document.addEventListener('keydown',e=>{
+      if(e.key!=='Enter') return;
+      document.getElementById('tab-owner').classList.contains('active')?loginOwner():loginEmp();
+    });
+
+    initData();
+  </script>
+</body>
+</html>

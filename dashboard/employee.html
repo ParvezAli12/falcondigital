@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Dashboard — Falcons Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="dashboard.css"/>
+</head>
+<body>
+
+<button class="mob-toggle" id="mob-toggle" onclick="toggleSidebar()">
+  <span></span><span></span><span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sb-logo">
+      <img src="../assets/images/logo.png" alt="Logo" onerror="this.style.display='none'"/>
+      <div class="sb-logo-txt">Falcons<span>.</span></div>
+    </div>
+    <nav class="sb-nav">
+      <div class="sb-sec">My Work</div>
+      <div class="sb-link active" onclick="showTab('home',this)"><span class="ic">🏠</span> My Dashboard</div>
+      <div class="sb-link" onclick="showTab('new-order',this)"><span class="ic">➕</span> Log New Order</div>
+      <div class="sb-link" onclick="showTab('my-orders',this)"><span class="ic">📋</span> My Orders</div>
+      <div class="sb-link" onclick="showTab('my-targets',this)"><span class="ic">🎯</span> My Targets</div>
+      <div class="sb-link" onclick="showTab('my-commission',this)"><span class="ic">💜</span> My Commission</div>
+    </nav>
+    <div class="sb-bottom">
+      <div class="sb-user">
+        <div class="sb-av" id="sb-av">?</div>
+        <div><div class="sb-uname" id="sb-name">—</div><div class="sb-urole" id="sb-role">Employee</div></div>
+      </div>
+      <button class="logout-btn" onclick="logout()">Sign Out</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="topbar-title" id="top-title">My Dashboard</div>
+        <div class="topbar-greet" id="top-greet"></div>
+      </div>
+      <div class="topbar-date" id="top-date"></div>
+    </div>
+
+    <div class="content">
+
+      <!-- HOME -->
+      <div class="tab-panel active" id="panel-home">
+        <div class="stats-row" id="home-stats"></div>
+        <div style="display:grid;grid-template-columns:2fr 1fr;gap:1.2rem;">
+          <div class="tbl-wrap" style="margin-bottom:0">
+            <div class="tbl-head"><div class="tbl-title">My Recent Orders</div></div>
+            <table><thead><tr><th>Date</th><th>Client</th><th>Service</th><th>Value</th><th>Commission</th><th>Status</th></tr></thead>
+            <tbody id="home-recent"></tbody></table>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <div class="ring-wrap">
+              <svg width="95" height="95" viewBox="0 0 95 95">
+                <circle cx="47.5" cy="47.5" r="38" fill="none" stroke="rgba(0,87,255,0.1)" stroke-width="9"/>
+                <circle cx="47.5" cy="47.5" r="38" fill="none" stroke="var(--blue)" stroke-width="9"
+                  stroke-dasharray="239" id="ring-c" stroke-dashoffset="239"
+                  stroke-linecap="round" transform="rotate(-90 47.5 47.5)" style="transition:stroke-dashoffset 1s ease"/>
+                <text x="47.5" y="52" text-anchor="middle" fill="white" font-family="Bebas Neue" font-size="18" id="ring-t">0%</text>
+              </svg>
+              <div class="ring-lbl">Completion Rate</div>
+            </div>
+            <div class="scard" style="--ac:var(--gold)">
+              <div class="scard-icon">🏆</div>
+              <div class="scard-val" id="my-rank">—</div>
+              <div class="scard-lbl">Team Rank</div>
+            </div>
+            <div class="scard" style="--ac:var(--purple)">
+              <div class="scard-icon">💜</div>
+              <div class="scard-val" id="my-comm-total">Rs. 0</div>
+              <div class="scard-lbl">Commission Earned</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEW ORDER -->
+      <div class="tab-panel" id="panel-new-order">
+        <div class="form-card">
+          <div class="form-title">Log New Order</div>
+          <div class="form-sub">Record a confirmed client order accurately. All starred fields are required.</div>
+          <div class="fgrid">
+            <div class="field"><label>Client Name *</label><input id="f-client" placeholder="e.g. Urban Wear PK"/></div>
+            <div class="field"><label>Client Contact</label><input id="f-contact" placeholder="Phone / Email"/></div>
+            <div class="field"><label>Service Sold *</label>
+              <select id="f-service">
+                <option value="">— Select Service —</option>
+                <option>Meta Ads Management</option>
+                <option>Google Ads Management</option>
+                <option>TikTok Ads Management</option>
+                <option>Social Media Management</option>
+                <option>Lead Generation Campaign</option>
+                <option>Full Digital Marketing Package</option>
+                <option>Content Creation</option>
+                <option>Brand Strategy</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="fgrid" style="margin-top:0.9rem">
+            <div class="field"><label>Platform</label>
+              <select id="f-platform">
+                <option value="">— Platform —</option>
+                <option>Facebook</option><option>Instagram</option><option>Google</option>
+                <option>TikTok</option><option>YouTube</option><option>Multiple Platforms</option><option>N/A</option>
+              </select>
+            </div>
+            <div class="field"><label>Order Value (Rs.) *</label><input id="f-value" type="number" placeholder="e.g. 25000" min="0"/></div>
+            <div class="field"><label>Status</label>
+              <select id="f-status"><option value="Pending">Pending</option><option value="In Progress">In Progress</option><option value="Completed">Completed</option></select>
+            </div>
+          </div>
+          <div class="fgrid2">
+            <div class="field"><label>Package / Duration</label><input id="f-package" placeholder="e.g. 1 Month Retainer"/></div>
+            <div class="field"><label>Client Ad Budget (Rs.)</label><input id="f-budget" type="number" placeholder="Monthly ad spend"/></div>
+          </div>
+          <div class="field" style="margin-top:0.9rem"><label>Notes</label>
+            <textarea id="f-notes" placeholder="Client requirements, special conditions, important details..."></textarea>
+          </div>
+          <div class="form-acts">
+            <button class="btn-primary" onclick="submitOrder()">✓ Submit Order</button>
+            <button class="btn-ghost" onclick="clearForm()">Clear</button>
+            <div class="toast" id="toast">✅ Order logged successfully!</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MY ORDERS -->
+      <div class="tab-panel" id="panel-my-orders">
+        <div class="sec-header">
+          <div class="sec-title">My Order History</div>
+          <select class="filter-sel" id="ord-filter" onchange="renderMyOrders()">
+            <option value="">All Statuses</option>
+            <option>Pending</option><option>In Progress</option><option>Completed</option><option>Cancelled</option>
+          </select>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Date</th><th>Client</th><th>Service</th><th>Platform</th><th>Package</th><th>Value</th><th>Commission</th><th>Status</th><th>Notes</th></tr></thead>
+            <tbody id="my-orders-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- MY TARGETS -->
+      <div class="tab-panel" id="panel-my-targets">
+        <div class="sec-header"><div class="sec-title">My Monthly Targets</div></div>
+        <div id="my-targets-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;"></div>
+      </div>
+
+      <!-- MY COMMISSION -->
+      <div class="tab-panel" id="panel-my-commission">
+        <div class="sec-header"><div class="sec-title">My Commission</div></div>
+        <div class="stats-row" id="comm-stats"></div>
+        <div class="tbl-wrap">
+          <div class="tbl-head"><div class="tbl-title">Commission per Completed Order</div></div>
+          <table>
+            <thead><tr><th>Date</th><th>Client</th><th>Service</th><th>Order Value</th><th>Rate</th><th>Commission</th></tr></thead>
+            <tbody id="comm-orders-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="employee.js"></script>
+</body>
+</html>

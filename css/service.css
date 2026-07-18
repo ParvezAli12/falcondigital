@@ -1,0 +1,197 @@
+/* ============================================================
+   FALCONS DIGITAL — Service Detail Page Styles
+   Matches services/*.html structure exactly
+   ============================================================ */
+
+/* ── HERO ── */
+.svc-hero {
+  padding: 10rem 0 4rem;
+  position: relative; overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.svc-hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,87,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,87,255,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 30%, transparent 90%);
+}
+.back-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  position: relative; z-index: 1;
+  font-size: 0.82rem; color: var(--gray);
+  margin-bottom: 1.5rem; transition: color 0.2s;
+}
+.back-link:hover { color: var(--blue); }
+.svc-hero-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: rgba(0,87,255,0.1); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; margin-bottom: 1.5rem;
+  position: relative; z-index: 1;
+}
+.svc-hero-title {
+  font-family: var(--font-d);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1; letter-spacing: 0.03em;
+  margin-bottom: 1.5rem;
+  position: relative; z-index: 1;
+}
+.svc-hero-sub {
+  font-size: 1.05rem; color: var(--gray);
+  line-height: 1.75; max-width: 640px;
+  margin-bottom: 2rem;
+  position: relative; z-index: 1;
+}
+.svc-hero-tags {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+.svc-hero-tags span {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--gray);
+  border: 1px solid var(--border); padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* ── INTRO ── */
+.svc-intro {
+  display: grid; grid-template-columns: 1fr 1.6fr;
+  gap: 4rem; align-items: start;
+}
+.svc-intro-label {
+  font-family: var(--font-d);
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  line-height: 1.15; letter-spacing: 0.03em;
+  position: sticky; top: 100px;
+}
+.svc-intro-text p {
+  color: var(--gray); font-size: 0.95rem;
+  line-height: 1.85; margin-bottom: 1.2rem;
+}
+
+/* ── CLIENT PROCESS (the actual process steps) ── */
+.client-process { display: flex; flex-direction: column; }
+.cp-step {
+  display: grid; grid-template-columns: 70px 1fr;
+  gap: 2rem; padding-bottom: 3rem;
+  position: relative;
+}
+.cp-step:not(:last-child)::before {
+  content: '';
+  position: absolute; left: 34px; top: 60px; bottom: 0;
+  width: 1.5px; background: var(--border);
+}
+.cp-step-num {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(0,87,255,0.1); border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-d); font-size: 1.4rem; color: var(--blue);
+  letter-spacing: 0.04em; flex-shrink: 0;
+  transition: all 0.3s; position: relative; z-index: 1;
+  background-color: var(--navy);
+}
+.cp-step:hover .cp-step-num {
+  background: var(--blue); color: #fff;
+  box-shadow: 0 0 24px var(--blue-glow);
+}
+.cp-step-badge {
+  display: inline-flex; font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold);
+  background: rgba(255,184,0,0.08); border: 1px solid rgba(255,184,0,0.25);
+  padding: 0.25rem 0.7rem; border-radius: 100px; margin-bottom: 0.9rem;
+}
+.cp-step-title {
+  font-family: var(--font-d); font-size: 1.5rem;
+  letter-spacing: 0.03em; margin-bottom: 0.7rem;
+}
+.cp-step-desc {
+  color: var(--gray); font-size: 0.92rem; line-height: 1.8;
+  max-width: 620px; margin-bottom: 1rem;
+}
+.cp-step-deliverable {
+  display: flex; gap: 0.6rem; align-items: flex-start;
+  background: rgba(0,87,255,0.05); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.9rem 1.1rem;
+  font-size: 0.84rem; color: rgba(255,255,255,0.75);
+  max-width: 620px;
+}
+.cp-step-deliverable b { color: var(--blue); }
+
+/* ── WHAT'S INCLUDED ── */
+.included-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.included-item {
+  display: flex; gap: 1.2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.6rem;
+  transition: border-color 0.3s, background 0.3s;
+}
+.included-item:hover { border-color: rgba(0,87,255,0.35); background: rgba(0,87,255,0.04); }
+.included-icon { font-size: 1.5rem; flex-shrink: 0; }
+.included-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem; }
+.included-desc { color: var(--gray); font-size: 0.85rem; line-height: 1.65; }
+
+/* ── FAQ ── */
+.svc-faq-list { display: flex; flex-direction: column; max-width: 760px; }
+.svc-faq-row { padding: 1.8rem 0; border-bottom: 1px solid var(--border); }
+.svc-faq-row:first-child { border-top: 1px solid var(--border); }
+.svc-faq-q { font-weight: 700; font-size: 1rem; margin-bottom: 0.6rem; }
+.svc-faq-a { color: var(--gray); font-size: 0.88rem; line-height: 1.75; }
+
+/* ── OTHER SERVICES ── */
+.other-services {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.other-svc-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.5rem;
+  transition: border-color 0.3s, background 0.3s;
+  display: block;
+}
+.other-svc-card:hover { border-color: rgba(0,87,255,0.35); background: rgba(0,87,255,0.04); }
+.osc-icon { font-size: 1.4rem; margin-bottom: 0.7rem; }
+.osc-name { font-weight: 700; font-size: 0.92rem; margin-bottom: 0.3rem; }
+.osc-arrow { font-size: 0.78rem; color: var(--blue); }
+
+/* ── RESULTS STRIP (optional, used on some pages) ── */
+.svc-results-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+.svc-result-card {
+  background: rgba(0,87,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.6rem; text-align: center;
+}
+.svc-result-num {
+  font-family: var(--font-d); font-size: 2.2rem;
+  color: var(--blue); letter-spacing: 0.04em; line-height: 1;
+}
+.svc-result-lbl {
+  font-size: 0.78rem; color: var(--gray);
+  margin-top: 0.5rem; line-height: 1.5;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .svc-intro { grid-template-columns: 1fr; gap: 1.5rem; }
+  .svc-intro-label { position: static; }
+  .included-grid { grid-template-columns: 1fr; }
+  .other-services { grid-template-columns: repeat(2, 1fr); }
+  .svc-results-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .cp-step { grid-template-columns: 44px 1fr; gap: 1.2rem; }
+  .cp-step-num { width: 44px; height: 44px; font-size: 1rem; }
+  .cp-step:not(:last-child)::before { left: 21px; }
+  .other-services { grid-template-columns: 1fr; }
+  .svc-results-row { grid-template-columns: 1fr 1fr; }
+  .svc-hero { padding: 8rem 0 3rem; }
+}

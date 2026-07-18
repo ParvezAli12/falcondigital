@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Owner Dashboard — Falcons Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <link rel="stylesheet" href="dashboard.css"/>
+</head>
+<body>
+
+<button class="mob-toggle" id="mob-toggle" onclick="toggleSidebar()">
+  <span></span><span></span><span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sb-logo">
+      <img src="../assets/images/logo.png" alt="Logo" onerror="this.style.display='none'"/>
+      <div class="sb-logo-txt">Falcons<span>.</span></div>
+    </div>
+    <nav class="sb-nav">
+      <div class="sb-sec">Overview</div>
+      <div class="sb-link active" onclick="showTab('overview',this)"><span class="ic">📊</span> Dashboard</div>
+      <div class="sb-link" onclick="showTab('orders',this)"><span class="ic">📋</span> All Orders</div>
+      <div class="sb-link" onclick="showTab('employees',this)"><span class="ic">👥</span> Employees</div>
+      <div class="sb-sec">Tools</div>
+      <div class="sb-link" onclick="showTab('targets',this)"><span class="ic">🎯</span> Monthly Targets</div>
+      <div class="sb-link" onclick="showTab('commission',this)"><span class="ic">💜</span> Commission</div>
+      <div class="sb-link" onclick="showTab('analytics',this)"><span class="ic">📈</span> Analytics</div>
+      <div class="sb-link" onclick="showTab('notifications',this)"><span class="ic">🔔</span> Notifications <span class="sb-badge" id="sb-notif-badge">0</span></div>
+      <div class="sb-link" onclick="showTab('reviews',this)"><span class="ic">⭐</span> Reviews <span class="sb-badge" id="sb-review-badge">0</span></div>
+    </nav>
+    <div class="sb-bottom">
+      <div class="sb-user">
+        <div class="sb-av">O</div>
+        <div><div class="sb-uname">Owner</div><div class="sb-urole">👑 Admin</div></div>
+      </div>
+      <button class="logout-btn" onclick="logout()">Sign Out</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="topbar-title" id="topbar-title">Dashboard</div>
+        <div class="topbar-date" id="topbar-date"></div>
+      </div>
+      <div class="topbar-right">
+        <div class="live-badge"><div class="live-dot"></div> Live</div>
+        <button class="exp-btn exp-excel" onclick="exportExcel()">📊 Excel</button>
+        <button class="exp-btn exp-csv" onclick="exportCSV()">📄 CSV</button>
+        <button class="exp-btn exp-print" onclick="window.print()">🖨 Print</button>
+        <div class="notif-wrap">
+          <div class="notif-bell" onclick="toggleNotifDD()">🔔<div class="notif-dot" id="notif-dot"></div></div>
+          <div class="notif-dd" id="notif-dd">
+            <div class="notif-dd-head">
+              <div class="notif-dd-title">Notifications</div>
+              <div class="notif-dd-clear" onclick="clearNotifs()">Clear all</div>
+            </div>
+            <div class="notif-scroll" id="notif-dd-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- OVERVIEW -->
+      <div class="tab-panel active" id="panel-overview">
+        <div class="stats-row" id="ov-stats"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.5rem;">
+          <div class="tbl-wrap" style="margin-bottom:0">
+            <div class="tbl-head"><div class="tbl-title">Recent Orders</div></div>
+            <table><thead><tr><th>Client</th><th>Employee</th><th>Value</th><th>Status</th></tr></thead>
+            <tbody id="ov-recent"></tbody></table>
+          </div>
+          <div class="tbl-wrap" style="margin-bottom:0;padding:1.3rem;">
+            <div class="tbl-title" style="margin-bottom:0.9rem;">Revenue by Employee</div>
+            <div class="bar-chart" id="ov-chart"></div>
+          </div>
+        </div>
+        <div class="sec-header"><div class="sec-title">Top Performers</div></div>
+        <div class="emp-grid" id="ov-top"></div>
+      </div>
+
+      <!-- ALL ORDERS -->
+      <div class="tab-panel" id="panel-orders">
+        <div class="sec-header">
+          <div class="sec-title">All Orders</div>
+          <div class="filters">
+            <select class="filter-sel" id="f-emp" onchange="renderOrders()"><option value="">All Employees</option></select>
+            <select class="filter-sel" id="f-stat" onchange="renderOrders()">
+              <option value="">All Statuses</option>
+              <option>Pending</option><option>In Progress</option><option>Completed</option><option>Cancelled</option>
+            </select>
+          </div>
+        </div>
+        <div class="tbl-wrap">
+          <div class="tbl-head">
+            <div class="tbl-title">Order Records</div>
+            <input class="search-inp" placeholder="Search..." id="order-q" oninput="renderOrders()"/>
+          </div>
+          <table>
+            <thead><tr><th>#</th><th>Date</th><th>Employee</th><th>Client</th><th>Service</th><th>Value</th><th>Commission</th><th>Status</th><th></th></tr></thead>
+            <tbody id="orders-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- EMPLOYEES -->
+      <div class="tab-panel" id="panel-employees">
+        <div class="sec-header">
+          <div class="sec-title">Manage Employees</div>
+          <button class="btn-primary" onclick="openM('m-add-emp')">+ Add Employee</button>
+        </div>
+        <div class="emp-grid" id="emp-grid"></div>
+      </div>
+
+      <!-- MONTHLY TARGETS -->
+      <div class="tab-panel" id="panel-targets">
+        <div class="sec-header">
+          <div class="sec-title">Monthly Targets</div>
+          <div class="filters">
+            <select class="filter-sel" id="tgt-month" onchange="renderTargets()"></select>
+            <button class="btn-primary" onclick="openM('m-set-target')">+ Set Target</button>
+          </div>
+        </div>
+        <div class="emp-grid" id="tgt-grid"></div>
+      </div>
+
+      <!-- COMMISSION -->
+      <div class="tab-panel" id="panel-commission">
+        <div class="sec-header">
+          <div class="sec-title">Commission Tracker</div>
+          <button class="btn-primary" onclick="openCommSettings()">⚙ Commission Settings</button>
+        </div>
+        <div class="comm-summary-box">
+          <div class="comm-summary-title">💜 Overall Commission Summary</div>
+          <div class="comm-summary-grid" id="comm-summary"></div>
+        </div>
+        <div class="tbl-wrap">
+          <div class="tbl-head"><div class="tbl-title">Commission Breakdown</div></div>
+          <table>
+            <thead><tr><th>Employee</th><th>Role</th><th>Rate</th><th>Completed</th><th>Total Sales</th><th>Commission Earned</th><th>Status</th></tr></thead>
+            <tbody id="comm-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ANALYTICS -->
+      <div class="tab-panel" id="panel-analytics">
+        <div class="sec-header"><div class="sec-title">Analytics</div></div>
+        <div class="stats-row" id="an-stats"></div>
+        <div class="tbl-wrap">
+          <div class="tbl-head"><div class="tbl-title">Full Performance Table</div></div>
+          <table>
+            <thead><tr><th>Employee</th><th>Role</th><th>Orders</th><th>Completed</th><th>Revenue</th><th>Commission</th><th>Rate</th><th>Progress</th></tr></thead>
+            <tbody id="an-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- NOTIFICATIONS -->
+      <div class="tab-panel" id="panel-notifications">
+        <div class="sec-header">
+          <div class="sec-title">All Notifications</div>
+          <button class="btn-cancel" style="padding:0.45rem 1rem;font-size:0.75rem;" onclick="clearNotifs();renderNotifPage()">Clear All</button>
+        </div>
+        <div class="notif-feed" id="notif-page"></div>
+      </div>
+
+      <!-- REVIEWS -->
+      <div class="tab-panel" id="panel-reviews">
+        <div class="sec-header">
+          <div class="sec-title">Manage Reviews</div>
+          <div style="font-size:0.8rem;color:var(--gray)">Approve or delete client reviews from the website</div>
+        </div>
+        <div style="margin-bottom:2rem;">
+          <div style="font-family:var(--font-display);font-size:1rem;letter-spacing:0.05em;margin-bottom:1rem;color:var(--gold)">⏳ PENDING APPROVAL</div>
+          <div id="reviews-pending-list"></div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:1rem;letter-spacing:0.05em;margin-bottom:1rem;color:var(--green)">✅ APPROVED & LIVE</div>
+          <div id="reviews-approved-list"></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- ADD EMPLOYEE MODAL -->
+<div class="modal-ov" id="m-add-emp">
+  <div class="modal">
+    <div class="modal-title">Add Employee</div>
+    <div class="modal-sub">Create a new team member account</div>
+    <div class="mfield"><label>Full Name</label><input id="ne-name" placeholder="e.g. Ahmed Khan"/></div>
+    <div class="mfield"><label>Employment Title</label><input id="ne-role" placeholder="e.g. Media Buyer, Sales Executive"/></div>
+    <div class="mfield"><label>Username</label><input id="ne-user" placeholder="Auto-generated after you type their name"/></div>
+    <div class="mfield"><label>Password</label><input id="ne-pass" placeholder="Auto-generated secure password"/></div>
+    <div class="mfield"><label>Commission Rate (%)</label><input type="number" id="ne-comm" value="10" min="0" max="100"/></div>
+    <div class="cred-box" id="new-cred-box">
+      <div class="cred-title">New Login Credentials</div>
+      <div class="cred-row"><span>Username</span><strong id="new-cred-user">—</strong></div>
+      <div class="cred-row"><span>Password</span><strong id="new-cred-pass">—</strong></div>
+    </div>
+    <div class="modal-acts">
+      <button class="btn-primary" onclick="addEmployee()">Add Employee</button>
+      <button class="btn-cancel" onclick="generateEmployeeCredentials()">Regenerate</button>
+      <button class="btn-cancel" onclick="closeM('m-add-emp')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER DETAIL MODAL -->
+<div class="modal-ov" id="m-order-detail">
+  <div class="modal">
+    <div class="modal-title">Order Details</div>
+    <div class="modal-sub">View and update this order</div>
+    <div id="order-detail-html"></div>
+    <div class="modal-acts">
+      <div class="mfield" style="margin:0;flex:1"><label>Update Status</label>
+        <select id="upd-status"><option>Pending</option><option>In Progress</option><option>Completed</option><option>Cancelled</option></select>
+      </div>
+      <button class="btn-primary" onclick="updateStatus()">Update</button>
+      <button class="btn-cancel" onclick="closeM('m-order-detail')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- SET TARGET MODAL -->
+<div class="modal-ov" id="m-set-target">
+  <div class="modal">
+    <div class="modal-title">Set Monthly Target</div>
+    <div class="modal-sub">Assign revenue and order targets for an employee</div>
+    <div class="mfield"><label>Employee</label><select id="t-emp"><option value="">— Choose Employee —</option></select></div>
+    <div class="mfield"><label>Month</label><select id="t-month"></select></div>
+    <div class="mfield"><label>Revenue Target (Rs.)</label><input type="number" id="t-rev" placeholder="e.g. 150000" min="0"/></div>
+    <div class="mfield"><label>Order Count Target</label><input type="number" id="t-ord" placeholder="e.g. 10" min="0"/></div>
+    <div class="modal-acts">
+      <button class="btn-primary" onclick="saveTarget()">Save Target</button>
+      <button class="btn-cancel" onclick="closeM('m-set-target')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- COMMISSION SETTINGS MODAL -->
+<div class="modal-ov" id="m-comm-settings">
+  <div class="modal">
+    <div class="modal-title">Commission Settings</div>
+    <div class="modal-sub">Set commission % per employee. Applied to completed order value.</div>
+    <div id="comm-settings-fields"></div>
+    <div class="modal-acts">
+      <button class="btn-primary" onclick="saveCommRates()">Save Rates</button>
+      <button class="btn-cancel" onclick="closeM('m-comm-settings')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="owner.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+/* ============================================================
+   FALCONS DIGITAL — Shared Page Styles
+   About, Pricing, Contact pages
+   ============================================================ */
+
+/* ── PAGE HERO ── */
+.page-hero {
+  padding: 10rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,87,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,87,255,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 30%, transparent 90%);
+}
+.page-title {
+  font-family: var(--font-d);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1; letter-spacing: 0.03em;
+  margin: 1rem 0 1.5rem;
+  position: relative; z-index: 1;
+}
+.page-sub {
+  font-size: 1.05rem; color: var(--gray);
+  line-height: 1.75; max-width: 640px;
+  position: relative; z-index: 1;
+}
+
+/* ── ABOUT: STORY GRID ── */
+.story-grid {
+  display: grid; grid-template-columns: 1.3fr 1fr;
+  gap: 5rem; align-items: start;
+}
+.sec-title-sm {
+  font-family: var(--font-d);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.1; letter-spacing: 0.03em;
+  margin-bottom: 1.5rem;
+}
+.story-text p {
+  color: var(--gray); font-size: 0.95rem;
+  line-height: 1.85; margin-bottom: 1.2rem;
+}
+.story-stats {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.story-stat-card {
+  background: rgba(0,87,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.5rem;
+  text-align: center;
+}
+.ssc-num {
+  font-family: var(--font-d); font-size: 2.2rem;
+  color: var(--blue); letter-spacing: 0.04em; line-height: 1;
+}
+.ssc-lbl {
+  font-size: 0.75rem; color: var(--gray);
+  margin-top: 0.4rem; text-transform: uppercase; letter-spacing: 0.06em;
+}
+
+/* ── VALUES GRID ── */
+.values-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+.value-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 2rem;
+  transition: border-color 0.3s, background 0.3s;
+}
+.value-card:hover { border-color: rgba(0,87,255,0.35); background: rgba(0,87,255,0.04); }
+.value-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+.value-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.6rem; }
+.value-desc { color: var(--gray); font-size: 0.86rem; line-height: 1.7; }
+
+/* ── APPROACH LIST ── */
+.approach-list { display: flex; flex-direction: column; }
+.approach-item {
+  display: grid; grid-template-columns: 70px 1fr;
+  gap: 1.5rem; padding: 2.2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.approach-item:first-child { border-top: 1px solid var(--border); }
+.approach-num {
+  font-family: var(--font-d); font-size: 2rem;
+  color: rgba(0,87,255,0.3); letter-spacing: 0.04em; line-height: 1;
+}
+.approach-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; }
+.approach-desc { color: var(--gray); font-size: 0.88rem; line-height: 1.75; max-width: 640px; }
+
+/* ── PRICING GRID ── */
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; align-items: stretch;
+}
+.price-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 16px; padding: 2.2rem;
+  display: flex; flex-direction: column;
+  position: relative;
+}
+.pc-featured {
+  background: rgba(0,87,255,0.06);
+  border-color: rgba(0,87,255,0.4);
+}
+.pc-badge {
+  position: absolute; top: -12px; left: 2.2rem;
+  background: var(--gold); color: var(--navy);
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+.pc-name { font-family: var(--font-d); font-size: 1.6rem; letter-spacing: 0.04em; margin-bottom: 0.5rem; }
+.pc-desc { color: var(--gray); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.5rem; min-height: 40px; }
+.pc-price {
+  font-family: var(--font-d); font-size: 2.6rem;
+  letter-spacing: 0.03em; color: var(--white);
+  margin-bottom: 0.3rem;
+}
+.pc-price span { font-size: 1rem; color: var(--gray); font-family: var(--font-b); font-weight: 500; }
+.pc-note { font-size: 0.76rem; color: var(--gray); margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+.pc-features { display: flex; flex-direction: column; gap: 0.7rem; flex: 1; }
+.pc-features li {
+  font-size: 0.85rem; color: rgba(255,255,255,0.8);
+  padding-left: 1.4rem; position: relative; line-height: 1.5;
+}
+.pc-features li::before {
+  content: '✓'; position: absolute; left: 0; color: var(--blue); font-weight: 700;
+}
+.pricing-footnote {
+  text-align: center; color: var(--gray); font-size: 0.85rem;
+  margin-top: 3rem; max-width: 560px; margin-left: auto; margin-right: auto;
+  line-height: 1.7;
+}
+
+/* ── ADD-ON GRID ── */
+.addon-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+.addon-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.8rem;
+  transition: border-color 0.3s;
+}
+.addon-card:hover { border-color: rgba(0,87,255,0.35); }
+.addon-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
+.addon-price { color: var(--gold); font-size: 0.82rem; font-weight: 700; margin-bottom: 0.8rem; }
+.addon-desc { color: var(--gray); font-size: 0.83rem; line-height: 1.6; }
+
+/* ── FAQ ACCORDION (simple list) ── */
+.faq-accordion {
+  display: flex; flex-direction: column;
+  max-width: 760px; margin: 0 auto;
+}
+.faq-row {
+  padding: 1.8rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.faq-row:first-child { border-top: 1px solid var(--border); }
+.faq-row-q { font-weight: 700; font-size: 1rem; margin-bottom: 0.6rem; }
+.faq-row-a { color: var(--gray); font-size: 0.88rem; line-height: 1.75; }
+
+/* ── CONTACT GRID ── */
+.contact-grid {
+  display: grid; grid-template-columns: 1.4fr 1fr;
+  gap: 3rem; align-items: start;
+}
+.contact-form-wrap {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 16px; padding: 2.5rem;
+}
+.cf-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1rem; margin-bottom: 1.2rem;
+}
+.cf-field { display: flex; flex-direction: column; gap: 0.5rem; }
+.cf-field.full-width { margin-bottom: 1.2rem; }
+.cf-field label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gray);
+}
+.cf-field input, .cf-field select, .cf-field textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 0.8rem 1rem;
+  color: var(--white); font-family: var(--font-b);
+  font-size: 0.9rem; outline: none;
+  transition: border-color 0.3s; -webkit-appearance: none;
+}
+.cf-field input:focus, .cf-field select:focus, .cf-field textarea:focus { border-color: var(--blue); }
+.cf-field input::placeholder, .cf-field textarea::placeholder { color: rgba(138,154,184,0.5); }
+.cf-field select option { background: var(--navy-2); }
+.cf-field textarea { resize: vertical; }
+.cf-status {
+  margin-top: 1rem; font-size: 0.85rem; text-align: center;
+  min-height: 1.2em;
+}
+.cf-status.success { color: var(--green); }
+.cf-status.error { color: #FF4560; }
+.cf-status.loading { color: var(--gray); }
+
+.contact-side { display: flex; flex-direction: column; gap: 1.2rem; }
+.contact-side-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.8rem;
+}
+.csc-icon { font-size: 1.6rem; margin-bottom: 0.8rem; }
+.csc-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem; }
+.csc-desc { color: var(--gray); font-size: 0.86rem; line-height: 1.65; }
+.csc-link { color: var(--blue); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .story-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .addon-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .values-grid { grid-template-columns: 1fr; }
+  .addon-grid { grid-template-columns: 1fr; }
+  .approach-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .cf-row { grid-template-columns: 1fr; }
+  .story-stats { grid-template-columns: 1fr 1fr; }
+  .page-hero { padding: 8rem 0 3rem; }
+}

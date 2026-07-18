@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Falcons Digital LLC — Digital Marketing & Ads Agency</title>
+  <meta name="description" content="Falcons Digital LLC — Meta Ads, Google Ads, and performance marketing that converts. Based in Karachi, Pakistan."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <div id="loader">
+    <div class="loader-inner">
+      <img src="assets/images/logo.png" alt="Falcons" class="loader-logo" onerror="this.style.display='none'"/>
+      <div class="loader-brand">FALCONS<span>.</span></div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <div id="cursor"><div class="cur-dot"></div><div class="cur-ring"></div></div>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <img src="assets/images/logo.png" alt="Falcons" class="logo-img" onerror="this.style.display='none'"/>
+        <span class="logo-txt">Falcons<span class="blue">.</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="dashboard/login.html" class="btn btn-outline">Dashboard</a>
+        <a href="contact.html" class="btn btn-outline">Contact</a>
+        <a href="contact.html" class="btn btn-primary">Get Started →</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#services" class="mm-link">Services</a>
+    <a href="about.html" class="mm-link">About Us</a>
+    <a href="pricing.html" class="mm-link">Pricing</a>
+    <a href="#process" class="mm-link">Process</a>
+    <a href="#testimonials" class="mm-link">Reviews</a>
+    <a href="dashboard/login.html" class="mm-link">Dashboard</a>
+    <a href="contact.html" class="mm-link blue">Get Started</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="hero-left">
+      <div class="hero-eyebrow" id="hero-eyebrow">
+        <span class="eyebrow-pulse"></span>
+        Karachi-Based Digital Agency
+      </div>
+      <h1 class="hero-title">
+        <span class="ht-line" id="ht1">WE RUN</span>
+        <span class="ht-line blue" id="ht2">ADS THAT</span>
+        <span class="ht-line ht-outline" id="ht3">CONVERT.</span>
+      </h1>
+      <p class="hero-desc" id="hero-desc">
+        Falcons Digital specializes in
+        <strong class="typewriter-wrap"><span id="typewriter">Meta Ads</span><span class="tw-cursor">|</span></strong>
+        and performance marketing that delivers real, measurable results — not vanity metrics.
+      </p>
+      <div class="hero-actions" id="hero-actions">
+        <a href="contact.html" class="btn btn-primary btn-lg">Start Growing <span>→</span></a>
+        <a href="#services" class="btn btn-ghost btn-lg">Our Services</a>
+      </div>
+      <div class="hero-trust" id="hero-stats">
+        <div class="ht-item"><div class="ht-dot"></div><span>150+ campaigns launched</span></div>
+        <div class="ht-item"><div class="ht-dot"></div><span>Average 3.8x ROAS delivered</span></div>
+        <div class="ht-item"><div class="ht-dot"></div><span>Live in 48 hours</span></div>
+      </div>
+    </div>
+
+    <div class="hero-right" id="hero-right">
+      <div class="hero-card">
+        <div class="hcard-top">
+          <div class="hcard-badge"><span class="pulse-green"></span> Live Campaign</div>
+          <div class="hcard-menu">• • •</div>
+        </div>
+        <div class="hcard-metric">
+          <div class="hcard-metric-val">4.8x</div>
+          <div class="hcard-metric-lbl">Return on Ad Spend</div>
+          <div class="hcard-metric-delta">↑ 240% vs last month</div>
+        </div>
+        <div class="hcard-chart">
+          <div class="chart-bars">
+            <div class="cb" style="height:40%"></div>
+            <div class="cb" style="height:60%"></div>
+            <div class="cb" style="height:45%"></div>
+            <div class="cb" style="height:75%"></div>
+            <div class="cb" style="height:55%"></div>
+            <div class="cb" style="height:90%"></div>
+            <div class="cb" style="height:70%"></div>
+            <div class="cb active" style="height:100%"></div>
+          </div>
+        </div>
+        <div class="hcard-footer">
+          <div class="hcard-stat"><div class="hs-val">Rs. 124K</div><div class="hs-lbl">Revenue</div></div>
+          <div class="hcard-stat"><div class="hs-val">Rs. 25K</div><div class="hs-lbl">Ad Spend</div></div>
+          <div class="hcard-stat"><div class="hs-val">347</div><div class="hs-lbl">Leads</div></div>
+        </div>
+      </div>
+      <div class="float-badge fb-1">
+        <span class="fb-icon">🎯</span>
+        <div><div class="fb-title">CPL Reduced</div><div class="fb-val">by 43%</div></div>
+      </div>
+      <div class="float-badge fb-2">
+        <span class="fb-icon">⚡</span>
+        <div><div class="fb-title">Live in</div><div class="fb-val">48 Hours</div></div>
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="mi"><span class="md">◆</span> Meta Ads</span>
+      <span class="mi"><span class="md">◆</span> Google Ads</span>
+      <span class="mi"><span class="md">◆</span> TikTok Ads</span>
+      <span class="mi"><span class="md">◆</span> Instagram Growth</span>
+      <span class="mi"><span class="md">◆</span> Lead Generation</span>
+      <span class="mi"><span class="md">◆</span> Brand Strategy</span>
+      <span class="mi"><span class="md">◆</span> E-Commerce Scaling</span>
+      <span class="mi"><span class="md">◆</span> Content Creation</span>
+      <span class="mi"><span class="md">◆</span> Meta Ads</span>
+      <span class="mi"><span class="md">◆</span> Google Ads</span>
+      <span class="mi"><span class="md">◆</span> TikTok Ads</span>
+      <span class="mi"><span class="md">◆</span> Instagram Growth</span>
+      <span class="mi"><span class="md">◆</span> Lead Generation</span>
+      <span class="mi"><span class="md">◆</span> Brand Strategy</span>
+      <span class="mi"><span class="md">◆</span> E-Commerce Scaling</span>
+      <span class="mi"><span class="md">◆</span> Content Creation</span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+<!-- SERVICES -->
+<section id="services" class="section-pad">
+  <div class="section-inner">
+    <div class="svc-section-head">
+      <div class="stag">What We Do</div>
+      <h2 class="sec-title">
+        Everything your brand needs<br>
+        to <span class="blue">dominate online</span>
+      </h2>
+    </div>
+
+    <div class="svc-rows">
+
+      <!-- Meta Ads -->
+      <a href="services/meta-ads.html" class="svc-row">
+        <div class="svc-row-left">
+          <div class="svc-row-num">01</div>
+          <div class="svc-row-icon">📊</div>
+        </div>
+        <div class="svc-row-center">
+          <h3 class="svc-row-title">Meta Ads</h3>
+          <p class="svc-row-desc">
+            Facebook and Instagram advertising built around your exact customer.
+            We handle everything from creative strategy to audience targeting to
+            daily optimization.
+          </p>
+          <div class="svc-row-tags">
+            <span>Facebook</span>
+            <span>Instagram</span>
+            <span>Retargeting</span>
+            <span>A/B Testing</span>
+          </div>
+        </div>
+        <div class="svc-row-right">
+          <span class="svc-row-cta">
+            Learn More →
+          </span>
+        </div>
+      </a>
+
+      <!-- Google Ads -->
+      <a href="services/google-ads.html" class="svc-row">
+        <div class="svc-row-left">
+          <div class="svc-row-num">02</div>
+          <div class="svc-row-icon">🔍</div>
+        </div>
+        <div class="svc-row-center">
+          <h3 class="svc-row-title">Google Ads</h3>
+          <p class="svc-row-desc">
+            Capture people already searching for what you sell through Search,
+            Shopping, Display and YouTube campaigns.
+          </p>
+          <div class="svc-row-tags">
+            <span>Search Ads</span>
+            <span>Shopping</span>
+            <span>YouTube</span>
+            <span>Display</span>
+          </div>
+        </div>
+        <div class="svc-row-right">
+          <span class="svc-row-cta">
+            Learn More →
+          </span>
+        </div>
+      </a>
+
+      <!-- TikTok Ads -->
+      <a href="services/tiktok-ads.html" class="svc-row">
+        <div class="svc-row-left">
+          <div class="svc-row-num">03</div>
+          <div class="svc-row-icon">🎵</div>
+        </div>
+        <div class="svc-row-center">
+          <h3 class="svc-row-title">TikTok Ads</h3>
+          <p class="svc-row-desc">
+            Scroll-stopping content paired with precision targeting to put your
+            brand in front of the right audience.
+          </p>
+          <div class="svc-row-tags">
+            <span>In-Feed Ads</span>
+            <span>TopView</span>
+            <span>Spark Ads</span>
+            <span>Creator Content</span>
+          </div>
+        </div>
+        <div class="svc-row-right">
+          <span class="svc-row-cta">
+            Learn More →
+          </span>
+        </div>
+      </a>
+
+      <!-- Social Media -->
+      <a href="services/social-media.html" class="svc-row">
+        <div class="svc-row-left">
+          <div class="svc-row-num">04</div>
+          <div class="svc-row-icon">📱</div>
+        </div>
+        <div class="svc-row-center">
+          <h3 class="svc-row-title">Social Media Management</h3>
+          <p class="svc-row-desc">
+            Content calendars, captions, post designs, engagement and growth
+            strategies for your brand.
+          </p>
+          <div class="svc-row-tags">
+            <span>Content Strategy</span>
+            <span>Community</span>
+            <span>Growth</span>
+            <span>Analytics</span>
+          </div>
+        </div>
+        <div class="svc-row-right">
+          <span class="svc-row-cta">
+            Learn More →
+          </span>
+        </div>
+      </a>
+
+      <!-- Lead Generation -->
+      <a href="services/lead-generation.html" class="svc-row">
+        <div class="svc-row-left">
+          <div class="svc-row-num">05</div>
+          <div class="svc-row-icon">🧲</div>
+        </div>
+        <div class="svc-row-center">
+          <h3 class="svc-row-title">Lead Generation</h3>
+          <p class="svc-row-desc">
+            Complete funnels from ads to landing pages to WhatsApp follow-up
+            that generate qualified leads.
+          </p>
+          <div class="svc-row-tags">
+            <span>Landing Pages</span>
+            <span>Funnels</span>
+            <span>WhatsApp Automation</span>
+            <span>CRM</span>
+          </div>
+        </div>
+        <div class="svc-row-right">
+          <span class="svc-row-cta">
+            Learn More →
+          </span>
+        </div>
+      </a>
+
+      <!-- Web Development -->
+      <a href="contact.html" class="svc-row svc-row-coming">
+        <div class="svc-row-left">
+          <div class="svc-row-num">06</div>
+          <div class="svc-row-icon">💻</div>
+        </div>
+        <div class="svc-row-center">
+          <h3 class="svc-row-title">
+            Web Development
+            <span class="coming-tag">Coming Soon</span>
+          </h3>
+          <p class="svc-row-desc">
+            High-converting landing pages, e-commerce stores and custom web
+            applications.
+          </p>
+          <div class="svc-row-tags">
+            <span>Landing Pages</span>
+            <span>E-Commerce</span>
+            <span>Custom Web Apps</span>
+          </div>
+        </div>
+        <div class="svc-row-right">
+          <span class="svc-row-cta">
+            Notify Me →
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+  <!-- WHY US -->
+  <section id="why-us" class="why-section">
+    <div class="why-top">
+      <div class="section-inner">
+        <div class="stag">Why Falcons Digital</div>
+        <h2 class="sec-title why-big-title">Most agencies report on clicks.<br><span class="blue">We report on revenue.</span></h2>
+      </div>
+    </div>
+    <div class="why-pillars">
+      <div class="section-inner">
+        <div class="pillars-grid">
+          <div class="pillar">
+            <div class="pillar-icon">📡</div>
+            <h3 class="pillar-title">Every move is backed by data</h3>
+            <p class="pillar-desc">We don't guess. Before spending a single rupee of your budget, we analyze your market, your competitors, your audience behavior, and what's already working in your industry. Then we build a strategy around that.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🎯</div>
+            <h3 class="pillar-title">One team. One point of contact.</h3>
+            <p class="pillar-desc">You get a dedicated account manager who knows your business inside out. No shuffling between departments. No repeating yourself. One person who is accountable for your results — and always picks up the phone.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🔄</div>
+            <h3 class="pillar-title">We cover the full funnel</h3>
+            <p class="pillar-desc">From the first ad impression to the final purchase — we manage the entire customer journey. Awareness, consideration, conversion, and retention. No gaps, no hand-offs, no excuses about "that's not our department."</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">📋</div>
+            <h3 class="pillar-title">You always know what's happening</h3>
+            <p class="pillar-desc">Every week you receive a clear, plain-English report showing exactly what we did, what it cost, what it produced, and what we're doing next. No jargon. No hiding behind vanity metrics. Just honest numbers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-statement">
+      <div class="section-inner">
+        <div class="ws-inner">
+          <div class="ws-text">"We don't just run your ads. We become obsessed with your growth."</div>
+          <a href="#cta" class="btn btn-primary btn-lg">Work With Us →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="section-pad process-section">
+    <div class="section-inner">
+      <div class="process-head">
+        <div>
+          <div class="stag">How It Works</div>
+          <h2 class="sec-title">From first call to<br><span class="blue">first results</span> — fast.</h2>
+        </div>
+        <p class="process-head-desc">We get campaigns live within 48 hours of signing. Here's exactly what happens from the moment you reach out to the moment your phone starts ringing.</p>
+      </div>
+      <div class="process-timeline">
+
+        <div class="pt-step">
+          <div class="pt-left">
+            <div class="pt-num">01</div>
+            <div class="pt-line"></div>
+          </div>
+          <div class="pt-right">
+            <div class="pt-badge">Day 1</div>
+            <h3 class="pt-title">Discovery Call — Free, 30 Minutes</h3>
+            <p class="pt-desc">We learn your business: your product, your customers, your goals, your budget, and who you're competing against. No pitch decks. No sales scripts. Just a real conversation about whether we're the right fit — and if we're not, we'll tell you that too.</p>
+            <div class="pt-deliverable">
+              <span class="pt-del-label">You get:</span>
+              <span>An honest assessment of your current ad situation and what we'd do differently</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-step">
+          <div class="pt-left">
+            <div class="pt-num">02</div>
+            <div class="pt-line"></div>
+          </div>
+          <div class="pt-right">
+            <div class="pt-badge">Day 2–3</div>
+            <h3 class="pt-title">Custom Strategy — Built For Your Business</h3>
+            <p class="pt-desc">Our team builds your complete ad strategy: which platforms, which audiences, what creative angles to test, how to structure the budget, and what success looks like in week 1 vs month 3. Everything is specific to you — nothing is copy-pasted from another client.</p>
+            <div class="pt-deliverable">
+              <span class="pt-del-label">You get:</span>
+              <span>A full campaign strategy document with platform plan, audience breakdown, and creative brief</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-step">
+          <div class="pt-left">
+            <div class="pt-num">03</div>
+            <div class="pt-line"></div>
+          </div>
+          <div class="pt-right">
+            <div class="pt-badge">Day 4–5</div>
+            <h3 class="pt-title">Launch — Campaigns Go Live</h3>
+            <p class="pt-desc">We set up your ad accounts, build the creatives, write the copy, configure targeting, install tracking pixels, and launch. From here we're watching your campaigns daily — adjusting bids, pausing underperformers, scaling what's working.</p>
+            <div class="pt-deliverable">
+              <span class="pt-del-label">You get:</span>
+              <span>Live campaigns running and access to a real-time dashboard showing your results</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-step">
+          <div class="pt-left">
+            <div class="pt-num">04</div>
+          </div>
+          <div class="pt-right">
+            <div class="pt-badge">Ongoing</div>
+            <h3 class="pt-title">Scale — We Double Down on What Works</h3>
+            <p class="pt-desc">Every week we analyze your data, kill what isn't performing, and pour more budget into what is. Every month you get a full report. Every quarter we revisit strategy. The longer we work together, the better your results get — because we know your business deeper every day.</p>
+            <div class="pt-deliverable">
+              <span class="pt-del-label">You get:</span>
+              <span>Weekly updates, monthly strategy reviews, and a partner who grows with your business</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" class="results-section">
+    <div class="section-inner">
+      <div class="results-head">
+        <div class="stag stag-light">Real Outcomes</div>
+        <h2 class="sec-title results-title">What actually happens<br>when you work with us</h2>
+      </div>
+      <div class="outcomes-grid">
+        <div class="outcome-card">
+          <div class="oc-icon">📈</div>
+          <h3 class="oc-title">Your cost per lead drops</h3>
+          <p class="oc-desc">Clients typically see a 30–45% reduction in cost per lead within the first 60 days. We cut waste fast and redirect that budget where it actually converts.</p>
+        </div>
+        <div class="outcome-card">
+          <div class="oc-icon">💰</div>
+          <h3 class="oc-title">Your ROAS climbs every month</h3>
+          <p class="oc-desc">Our average client goes from 1.5x to 3.8x ROAS within 3 months. We don't just maintain performance — we compound it through relentless testing and optimization.</p>
+        </div>
+        <div class="outcome-card">
+          <div class="oc-icon">📞</div>
+          <h3 class="oc-title">Your phone actually rings</h3>
+          <p class="oc-desc">We build funnels that drive real enquiries — WhatsApp messages, phone calls, form fills. Not just clicks and impressions that look good on a report but don't pay your bills.</p>
+        </div>
+        <div class="outcome-card">
+          <div class="oc-icon">🧠</div>
+          <h3 class="oc-title">You understand what's working</h3>
+          <p class="oc-desc">Every week you get a clear breakdown of exactly what your money did. Which ad, which audience, which platform. You'll know your business better than you ever did before.</p>
+        </div>
+        <div class="outcome-card">
+          <div class="oc-icon">⚡</div>
+          <h3 class="oc-title">You move faster than competitors</h3>
+          <p class="oc-desc">While your competitors are still figuring out their strategy, your campaigns are live, tested, and scaling. We move fast and build momentum that's hard to catch up to.</p>
+        </div>
+        <div class="outcome-card">
+          <div class="oc-icon">🤝</div>
+          <h3 class="oc-title">You get a team that actually cares</h3>
+          <p class="oc-desc">98% of clients stay with us after the first 3 months — not because of contracts, but because of results. We treat your budget like our own money and your business like our own.</p>
+        </div>
+      </div>
+      <div class="results-cta-strip">
+        <div class="rcs-text">Ready to see these results for your business?</div>
+        <a href="contact.html" class="btn btn-gold btn-lg">Book a Free Call →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="testimonials" class="section-pad reviews-section">
+    <div class="section-inner">
+      <div class="reviews-header">
+        <div class="rh-left">
+          <div class="stag">Client Voices</div>
+          <h2 class="sec-title">What our clients<br>actually say</h2>
+        </div>
+        <div class="rh-right">
+          <div class="overall-rating">
+            <div class="or-score" id="avg-score">—</div>
+            <div class="or-stars" id="avg-stars">☆☆☆☆☆</div>
+            <div class="or-count" id="review-count">No reviews yet</div>
+            <div class="or-bars" id="rating-bars"></div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-grid" id="reviews-grid"></div>
+      <div class="reviews-more" id="reviews-more" style="display:none;">
+        <button class="btn btn-ghost" onclick="loadMoreReviews()">Load More Reviews</button>
+      </div>
+      <div class="write-review-wrap" id="write-review">
+        <div class="wr-header">
+          <div class="wr-title">Share Your Experience</div>
+          <div class="wr-sub">Worked with us? We'd love to hear your feedback.</div>
+        </div>
+        <div class="wr-form">
+          <div class="wr-form-row">
+            <div class="wr-field">
+              <label>Your Name *</label>
+              <input id="rv-name" type="text" placeholder="e.g. Ahmed Khan" maxlength="60"/>
+            </div>
+            <div class="wr-field">
+              <label>Company / Role</label>
+              <input id="rv-role" type="text" placeholder="e.g. CEO, UrbanWear PK" maxlength="80"/>
+            </div>
+            <div class="wr-field">
+              <label>Service Used</label>
+              <select id="rv-service">
+                <option value="">— Select Service —</option>
+                <option>Meta Ads Management</option>
+                <option>Google Ads Management</option>
+                <option>TikTok Ads Management</option>
+                <option>Social Media Management</option>
+                <option>Lead Generation</option>
+                <option>Full Digital Marketing Package</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="wr-rating-wrap">
+            <label>Your Rating *</label>
+            <div class="star-picker" id="star-picker">
+              <span class="sp-star" data-val="1">★</span>
+              <span class="sp-star" data-val="2">★</span>
+              <span class="sp-star" data-val="3">★</span>
+              <span class="sp-star" data-val="4">★</span>
+              <span class="sp-star" data-val="5">★</span>
+            </div>
+            <div class="rating-label" id="rating-label">Click to rate</div>
+          </div>
+          <div class="wr-field full-width">
+            <label>Your Review *</label>
+            <textarea id="rv-text" placeholder="Tell us about your experience working with Falcons Digital. What results did you get? What did you love most?" maxlength="500"></textarea>
+            <div class="char-count"><span id="char-count">0</span>/500</div>
+          </div>
+          <div class="wr-actions">
+            <button class="btn btn-primary btn-lg" onclick="submitReview()">Submit Review →</button>
+            <div class="wr-note">✓ Reviews appear after approval</div>
+          </div>
+          <div class="wr-success" id="wr-success">
+            <div class="ws-icon">🎉</div>
+            <div class="ws-title">Thank you for your review!</div>
+            <div class="ws-sub">It will appear here after our team approves it.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="cta-grid-bg"></div>
+    <div class="section-inner cta-inner">
+      <div class="stag stag-white" style="display:inline-flex;">Let's Talk</div>
+      <h2 class="cta-title">Ready to <span class="blue">Fly</span><br>Past Your<br>Competition?</h2>
+      <p class="cta-desc">Book a free 30-minute strategy call. No pressure, no fluff — just an honest look at how we can scale your business with paid ads.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-gold btn-xl">Book Free Strategy Call →</a>
+        <a href="https://wa.me/923000000000" class="btn btn-outline btn-xl" target="_blank">💬 WhatsApp Us</a>
+      </div>
+      <div class="cta-trust">
+        <span>✓ No contracts</span>
+        <span>✓ Free strategy call</span>
+        <span>✓ Results guaranteed</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:1rem">
+          <img src="assets/images/logo.png" alt="Falcons" class="logo-img" onerror="this.style.display='none'"/>
+          <span class="logo-txt">Falcons<span class="blue">.</span></span>
+        </div>
+        <p>A next-generation digital marketing agency. We help brands grow faster with precision advertising and data-backed strategy.</p>
+        <div class="footer-socials">
+          <a href="#" class="fsoc">in</a>
+          <a href="#" class="fsoc">fb</a>
+          <a href="#" class="fsoc">li</a>
+          <a href="#" class="fsoc">tt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services/meta-ads.html">Meta Ads</a></li>
+          <li><a href="services/google-ads.html">Google Ads</a></li>
+          <li><a href="services/tiktok-ads.html">TikTok Ads</a></li>
+          <li><a href="services/social-media.html">Social Media</a></li>
+          <li><a href="services/lead-generation.html">Lead Generation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@falconsdigital.co">hello@falconsdigital.co</a></li>
+          <li><a href="https://wa.me/923000000000">WhatsApp</a></li>
+          <li><a href="#">Karachi, Pakistan</a></li>
+          <li><a href="dashboard/login.html">Staff Login</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Falcons Digital LLC. All rights reserved.</p>
+      <div class="footer-live"><span class="badge-dot"></span> All systems operational</div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/923000000000" class="wa-float" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+
+  <script src="js/main.js"></script>
+  <script src="js/reviews.js"></script>
+</body>
+</html>
